@@ -12,10 +12,10 @@ Price    | 0    2   4   5   7  11  13  17
 
 let cost = [0, 2, 4, 5, 7, 11, 13, 17];
 
-function rodCutter(cost, n){
+function rodCutter(cost, n) {
 
     // Initializing rod array
-    let rod = [n+1];
+    let rod = [n + 1];
     rod[0] = 0;
 
     // Loop for each rod length 'i'
@@ -32,3 +32,32 @@ function rodCutter(cost, n){
 }
 
 console.log(rodCutter(cost, 4));
+
+
+/* pseudocode for possible combinations
+
+rodCutterCombinations(cost[],n):
+  
+    initialize rod[n+1] as a new array
+    rod[0] = 0
+
+    // This will save number of combinations for all length of rods
+    initialize combinations[n+1] as a new array
+    combinations[0] = 1
+
+    for i from 1 to n:
+        max_val = -INF
+
+         for j from 1 to i:
+            // If we have found the best possibility
+            if( max_val < cost[j] + rod[i-j] )
+                max_val = cost[j] + rod[i-j]
+                 combinations[i] = combinations[i-j]
+      
+            // If another optimum option is found same as before
+            else if( max_val = cost[j] + rod[i-j] )
+                combinations[i] = combinations[i] + combinations[i-j]
+
+        rod[i] = max_val
+
+    return combinations[n] */
